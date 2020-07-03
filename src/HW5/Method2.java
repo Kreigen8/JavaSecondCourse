@@ -1,10 +1,9 @@
 package HW5;
 
-public class Method2 extends InterruptedException implements Runnable {
-    static final int size = 100000000;
+public class Method2 {
+    static final int size = 10000000;
     static final int h = size / 2;
 
-    @Override
     public void run() {
 
         float[] arr = new float[size];
@@ -36,10 +35,6 @@ public class Method2 extends InterruptedException implements Runnable {
         t2.start();
         try {
             t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        try {
             t2.join();
         } catch (InterruptedException e) {
             e.printStackTrace();
