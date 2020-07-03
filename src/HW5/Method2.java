@@ -1,6 +1,6 @@
 package HW5;
 
-public class Method2 implements Runnable{
+public class Method2 extends InterruptedException implements Runnable {
     static final int size = 100000000;
     static final int h = size / 2;
 
@@ -31,6 +31,19 @@ public class Method2 implements Runnable{
                 arr3[i] = (float)(arr3[i] * Math.sin(0.2f + (h+i) / 5) * Math.cos(0.2f + (h+i) / 5) * Math.cos(0.4f + (h+i) / 2));
             }
         });
+
+        t1.start();
+        t2.start();
+        try {
+            t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.arraycopy(arr2, 0, arr, 0, h);
         System.arraycopy(arr3, 0, arr, h, h);
