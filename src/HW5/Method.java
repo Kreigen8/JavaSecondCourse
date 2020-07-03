@@ -1,7 +1,7 @@
 package HW5;
 
 public class Method implements Runnable{
-    static final int size = 10000000;
+    static final int size = 100000000;
 
     @Override
     public void run() {
